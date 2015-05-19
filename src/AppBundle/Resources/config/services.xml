@@ -4,6 +4,10 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="redmine.client.service_description.file">%kernel.root_dir%/../src/AppBundle/Resources/config/service_description.json</parameter>
+    </parameters>
+
     <services>
         <service id="redmine.client" class="%guzzle.client.class%">
             <tag name="guzzle.client"/>
@@ -15,6 +19,16 @@
                     </argument>
                 </argument>
             </argument>
+            <call method="setDescription">
+                <argument type="service" id="redmine.client.service_description"/>
+            </call>
+        </service>
+
+        <service id="redmine.client.service_description"
+                 class="%guzzle.service_description.class%"
+                 factory-class="%guzzle.service_description.class%"
+                 factory-method="factory">
+            <argument>%redmine.client.service_description.file%</argument>
         </service>
     </services>
 </container>
