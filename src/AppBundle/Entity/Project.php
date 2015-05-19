@@ -75,6 +75,22 @@ class Project
     private $status;
 
     /**
+     * @var CustomField[]
+     *
+     * @ORM\Column(name="custom_fields", type="array", nullable=true)
+     * @Type("ArrayCollection<AppBundle\Entity\CustomField>")
+     */
+    private $customFields;
+
+    /**
+     * @var Tracker[]
+     *
+     * @ORM\Column(name="trackers", type="array", nullable=true)
+     * @Type("ArrayCollection<AppBundle\Entity\Tracker>")
+     */
+    private $trackers;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="issue_categories", type="array", nullable=true)
@@ -85,26 +101,10 @@ class Project
     /**
      * @var array
      *
-     * @ORM\Column(name="custom_fields", type="array", nullable=true)
-     * @Type("array")
-     */
-    private $customFields;
-
-    /**
-     * @var array
-     *
      * @ORM\Column(name="enabled_modules", type="array", nullable=true)
      * @Type("array")
      */
     private $enabledModules;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="trackers", type="array", nullable=true)
-     * @Type("array")
-     */
-    private $trackers;
 
     /**
      * @ORM\Column(name="created_on", type="datetime")
@@ -268,29 +268,6 @@ class Project
     }
 
     /**
-     * Set issueCategories
-     *
-     * @param array $issueCategories
-     * @return Project
-     */
-    public function setIssueCategories($issueCategories)
-    {
-        $this->issueCategories = $issueCategories;
-
-        return $this;
-    }
-
-    /**
-     * Get issueCategories
-     *
-     * @return array 
-     */
-    public function getIssueCategories()
-    {
-        return $this->issueCategories;
-    }
-
-    /**
      * Set customFields
      *
      * @param array $customFields
@@ -314,29 +291,6 @@ class Project
     }
 
     /**
-     * Set enabledModules
-     *
-     * @param array $enabledModules
-     * @return Project
-     */
-    public function setEnabledModules($enabledModules)
-    {
-        $this->enabledModules = $enabledModules;
-
-        return $this;
-    }
-
-    /**
-     * Get enabledModules
-     *
-     * @return array 
-     */
-    public function getEnabledModules()
-    {
-        return $this->enabledModules;
-    }
-
-    /**
      * Set trackers
      *
      * @param array $trackers
@@ -357,6 +311,52 @@ class Project
     public function getTrackers()
     {
         return $this->trackers;
+    }
+
+    /**
+     * Set issueCategories
+     *
+     * @param array $issueCategories
+     * @return Project
+     */
+    public function setIssueCategories($issueCategories)
+    {
+        $this->issueCategories = $issueCategories;
+
+        return $this;
+    }
+
+    /**
+     * Get issueCategories
+     *
+     * @return array 
+     */
+    public function getIssueCategories()
+    {
+        return $this->issueCategories;
+    }
+
+    /**
+     * Set enabledModules
+     *
+     * @param array $enabledModules
+     * @return Project
+     */
+    public function setEnabledModules($enabledModules)
+    {
+        $this->enabledModules = $enabledModules;
+
+        return $this;
+    }
+
+    /**
+     * Get enabledModules
+     *
+     * @return array 
+     */
+    public function getEnabledModules()
+    {
+        return $this->enabledModules;
     }
 
     /**
