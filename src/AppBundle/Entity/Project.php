@@ -118,7 +118,6 @@ class Project
      */
     private $updatedOn;
 
-
     /**
      * Get id
      *
@@ -224,10 +223,10 @@ class Project
     /**
      * Set parent
      *
-     * @param \stdClass $parent
-     * @return Project
+     * @param Project $parent
+     * @return $this
      */
-    public function setParent($parent)
+    public function setParent(Project $parent)
     {
         $this->parent = $parent;
 
@@ -237,7 +236,7 @@ class Project
     /**
      * Get parent
      *
-     * @return \stdClass 
+     * @return Project
      */
     public function getParent()
     {
