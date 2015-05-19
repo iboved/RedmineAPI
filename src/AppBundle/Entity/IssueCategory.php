@@ -32,7 +32,6 @@ class IssueCategory
      */
     private $name;
 
-
     /**
      * Get id
      *

@@ -40,11 +40,10 @@ class CustomField
      */
     private $value;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -67,7 +66,7 @@ class CustomField
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -90,7 +89,7 @@ class CustomField
     /**
      * Get value
      *
-     * @return string 
+     * @return string
      */
     public function getValue()
     {
