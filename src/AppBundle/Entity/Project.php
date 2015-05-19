@@ -91,10 +91,10 @@ class Project
     private $trackers;
 
     /**
-     * @var array
+     * @var IssueCategory[]
      *
      * @ORM\Column(name="issue_categories", type="array", nullable=true)
-     * @Type("array")
+     * @Type("ArrayCollection<AppBundle\Entity\IssueCategory>")
      */
     private $issueCategories;
 
@@ -224,7 +224,7 @@ class Project
      * Set parent
      *
      * @param Project $parent
-     * @return $this
+     * @return Project
      */
     public function setParent(Project $parent)
     {
