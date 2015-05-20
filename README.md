@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/iboved/RedmineAPI.svg)](https://travis-ci.org/iboved/RedmineAPI)
+[![Build Status](https://travis-ci.org/iboved/RedmineAPI.svg?branch=develop)](https://travis-ci.org/iboved/RedmineAPI)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iboved/RedmineAPI/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/iboved/RedmineAPI/?branch=develop)
 
 Symfony Standard Edition
