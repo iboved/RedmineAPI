@@ -242,7 +242,7 @@ class Project
     /**
      * Set status
      *
-     * @param boolean $status
+     * @param integer $status
      * @return Project
      */
     public function setStatus($status)
@@ -255,7 +255,7 @@ class Project
     /**
      * Get status
      *
-     * @return boolean 
+     * @return integer
      */
     public function getStatus()
     {
