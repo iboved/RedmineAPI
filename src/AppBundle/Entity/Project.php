@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\Type;
 
 /**
@@ -27,7 +26,6 @@ class Project
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
-     * @Assert\NotBlank()
      * @Type("string")
      */
     private $name;
@@ -36,7 +34,6 @@ class Project
      * @var string
      *
      * @ORM\Column(name="identifier", type="string", length=255, unique=true)
-     * @Assert\NotBlank()
      * @Type("string")
      */
     private $identifier;
@@ -66,11 +63,10 @@ class Project
     private $parent;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="status", type="boolean")
-     * @Assert\NotBlank()
-     * @Type("boolean")
+     * @ORM\Column(name="status", type="integer")
+     * @Type("integer")
      */
     private $status;
 
@@ -313,29 +309,6 @@ class Project
     }
 
     /**
-     * Set issueCategories
-     *
-     * @param array $issueCategories
-     * @return Project
-     */
-    public function setIssueCategories($issueCategories)
-    {
-        $this->issueCategories = $issueCategories;
-
-        return $this;
-    }
-
-    /**
-     * Get issueCategories
-     *
-     * @return array 
-     */
-    public function getIssueCategories()
-    {
-        return $this->issueCategories;
-    }
-
-    /**
      * Set enabledModules
      *
      * @param array $enabledModules
@@ -402,5 +375,28 @@ class Project
     public function getUpdatedOn()
     {
         return $this->updatedOn;
+    }
+
+    /**
+     * Set issueCategories
+     *
+     * @param array $issueCategories
+     * @return Project
+     */
+    public function setIssueCategories($issueCategories)
+    {
+        $this->issueCategories = $issueCategories;
+
+        return $this;
+    }
+
+    /**
+     * Get issueCategories
+     *
+     * @return array
+     */
+    public function getIssueCategories()
+    {
+        return $this->issueCategories;
     }
 }
