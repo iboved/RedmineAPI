@@ -22,6 +22,19 @@
                 }
             }
         },
+        "GetProjects": {
+            "httpMethod": "GET",
+            "uri": "projects.json",
+            "summary": "Gets an array of projects",
+            "responseClass": "AppBundle\\Model\\ProjectsDTO",
+            "parameters": {
+                "include": {
+                    "location":"query",
+                    "type": "string",
+                    "description":"Fetch associated data (trackers, issue_categories, enabled_modules)"
+                }
+            }
+        },
         "GetIssue": {
             "httpMethod": "GET",
             "uri": "issues/{id}.json",
