@@ -27,12 +27,8 @@
             "uri": "projects.json",
             "summary": "Gets an array of projects",
             "responseClass": "AppBundle\\Model\\ProjectsDTO",
-            "parameters": {
-                "include": {
-                    "location":"query",
-                    "type": "string",
-                    "description":"Fetch associated data (trackers, issue_categories, enabled_modules)"
-                }
+            "additionalParameters": {
+                "location": "query"
             }
         },
         "GetIssue": {
@@ -52,6 +48,15 @@
                     "type": "string",
                     "description":"Fetch associated data (children, attachments, relations etc.)"
                 }
+            }
+        },
+        "GetIssues": {
+            "httpMethod": "GET",
+            "uri": "issues.json",
+            "summary": "Gets an array of issues",
+            "responseClass": "AppBundle\\Model\\IssuesDTO",
+            "additionalParameters": {
+                "location": "query"
             }
         }
     }
