@@ -2,16 +2,26 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Model\ProjectsDTO;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/app/example", name="homepage")
+     * This method render last 25 projects
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $client = $this->get('redmine.client');
+        $command = $client->getCommand('GetProjects');
+
+        /** @var ProjectsDTO $projectsDTO */
+        $projectsDTO = $client->execute($command);
+
+        return $this->render('default/index.html.twig', [
+            'projects' => $projectsDTO->projects
+        ]);
     }
 }
