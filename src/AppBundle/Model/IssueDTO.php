@@ -11,5 +11,5 @@ class IssueDTO
      *
      * @Type("AppBundle\Entity\Issue")
      */
-    protected $issue;
+    public $issue;
 }
