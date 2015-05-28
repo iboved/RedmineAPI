@@ -3,12 +3,17 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Model\ProjectsDTO;
 
 class DefaultController extends Controller
 {
     /**
      * This method render last 25 projects
+     *
+     * @Route("/")
+     * @Method({"GET"})
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
