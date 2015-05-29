@@ -1,5 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    Homepage.
+{% block title %}Redmine client{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .row DIV .col-xs-4:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+{% endblock %}
+{% block container %}
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-12">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="jumbotron">
+                <h2>Welcome!</h2>
+                <p>This website helps interation with Redmine.</p>
+            </div>
+            <div class="row">
+                {% for project in projects|slice(-3) %}
+                    <div class="col-xs-4 col-lg-4">
+                        <h2>{{ project.name }}</h2>
+                        <p>{{ project.description|slice(0, 195) }}</p>
+                        <p>Is public: {{ project.status ? 'Yes' : 'No' }}</p>
+                        {% for customField in project.customFields %}
+                            {% if customField.value %}
+                                <li>{{ customField.name }}: {{ customField.value }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if project.parent %}
+                            <li>Parent: {{ project.parent.name }}</li>
+                        {% endif %}
+                        <p>Created: {{ project.createdOn|date }}</p>
+                        <p><a class="btn btn-primary" href="{{ path('app_project_get', {'id': project.id}) }}" role="button">View details &raquo;</a></p>
+                    </div><!--/.col-xs-4.col-lg-4-->
+                {% endfor %}
+            </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-12-->
+    </div><!--/row-->
 {% endblock %}
