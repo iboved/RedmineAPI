@@ -11,7 +11,6 @@
             "parameters": {
                 "id": {
                     "location":"uri",
-                    "type": "integer",
                     "description":"Project to retrieve by ID",
                     "required":"true"
                 },
@@ -39,7 +38,6 @@
             "parameters": {
                 "id": {
                     "location":"uri",
-                    "type": "integer",
                     "description":"Issue to retrieve by ID",
                     "required":"true"
                 },
