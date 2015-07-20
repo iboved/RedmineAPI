@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ projects.name }}{% endblock %}
+
+{% block container %}
+    <div class="col-xs-12 col-sm-12">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title" style="font-size: x-large; text-align: center">{{ projects.name }}</p>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-6 col-lg-6">
+                        <div class="panel panel-default">
+                            <p style="font-size: 20px; text-align: center">{{ projects.description }}</p>
+                        </div>
+                    </div><!--/.col-xs-6 col-lg-6-->
+                </div>
+            </div>
+        </div><!--/row-->
+    </div><!--/.col-xs-12.col-sm-12-->
+{% endblock %}
